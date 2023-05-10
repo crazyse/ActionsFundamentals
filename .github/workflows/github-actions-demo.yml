@@ -3,7 +3,7 @@ name: GitHub Actions Demo
 on: 
   push:
     branches: [main]
-    paths-ignore: [.gthub/**]
+    paths-ignore: [.github/**]
   merge_group:
     branches: [main]
   schedule:
