@@ -4,10 +4,10 @@ on:
   workflow_call:
     inputs: 
       who-to-greet:
-      description: 'Greet someone'
-      type: string
-      default: World
-      required: true
+        description: 'Greet someone'
+        type: string
+        default: World
+        required: true
     outputs:
       current-time:
         description: 'The time when greeting.'
@@ -16,14 +16,13 @@ on:
       
 jobs:
   reusable-job:
-  runs-on: ubuntu-latest
-  outputs:
-     current-time: ${{ steps.time.outputs.time }}
-  
-  steps:
-    - name: 'echo to console'
-      run: echo "Hello ${{ inputs.who-to-greet }}"
+    runs-on: ubuntu-latest
+    outputs:
+      current-time: ${{ steps.time.outputs.time }}  
+    steps:
+      - name: 'echo to console'
+        run: echo "Hello ${{ inputs.who-to-greet }}"
       
-    - name: Set time
-      id: time
-      run: echo "time=$(date)" >> $GITHUB_OUTPUT
+      - name: Set time
+        id: time
+        run: echo "time=$(date)" >> $GITHUB_OUTPUT
